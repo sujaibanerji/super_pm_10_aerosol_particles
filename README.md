@@ -1,77 +1,95 @@
-Atmospheric Data Processing and Analysis
-========================================
+# Atmospheric Data Processing and Analysis
+
+[![Python Version](https://img.shields.io/badge/python-3.9-blue.svg)](https://www.python.org/downloads/release/python-3913/)
+[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
 This repository contains Python scripts for processing and analyzing atmospheric measurement datasets 
-(scattering, absorption, and correction factors) between 2010 and 2022.
+(scattering, absorption, and correction factors) between **2010 and 2022**.
 
-The project reproduces the workflow tested in Python 3.9 with specific library versions to ensure consistency.
+The workflow was tested in **Python 3.9** with pinned dependencies to ensure reproducibility.
 
-GitHub Repository: https://github.com/sujaibanerji/super_pm_10_aerosol_particles
+📂 GitHub Repository: [super_pm_10_aerosol_particles](https://github.com/sujaibanerji/super_pm_10_aerosol_particles)
 
-------------------------------------------------------------
-Requirements
-------------------------------------------------------------
+---
 
-- Python 3.9.x (must be installed)
+## 🚀 Requirements
+
+- Python **3.9.x** (must be installed)
 - Virtual environment (recommended)
 
-------------------------------------------------------------
-Setup Instructions
-------------------------------------------------------------
+---
 
-1. Clone the repository
+## ⚙️ Setup Instructions
 
-   git clone https://github.com/sujaibanerji/super_pm_10_aerosol_particles.git
-   cd super_pm_10_aerosol_particles
+1. **Clone the repository**
 
-2. Install Python 3.9 (if you don’t have it)
+```bash
+git clone https://github.com/sujaibanerji/super_pm_10_aerosol_particles.git
+cd super_pm_10_aerosol_particles
+```
 
-   - Windows: Download the installer from https://www.python.org/downloads/release/python-3913/
-     During installation, make sure to check the box "Add Python to PATH".
+2. **Install Python 3.9 (if not installed)**
 
-   - Linux (Ubuntu/Debian): 
-       sudo apt update
-       sudo apt install python3.9 python3.9-venv python3.9-dev
+- **Windows**: [Download Python 3.9.13](https://www.python.org/downloads/release/python-3913/)  
+  Be sure to check **"Add Python to PATH"** during installation.
 
-   - macOS: Use Homebrew
-       brew install python@3.9
+- **Linux (Ubuntu/Debian)**:
+```bash
+sudo apt update
+sudo apt install python3.9 python3.9-venv python3.9-dev
+```
 
-3. Create and activate a virtual environment (Python 3.9)
+- **macOS** (using Homebrew):
+```bash
+brew install python@3.9
+```
 
-   On Windows:
-       py -3.9 -m venv venv39
-       venv39\Scripts\activate
+3. **Create and activate a virtual environment**
 
-   On Linux/macOS:
-       python3.9 -m venv venv39
-       source venv39/bin/activate
+- Windows:
+```powershell
+py -3.9 -m venv venv39
+venv39\Scripts\activate
+```
 
-4. Install dependencies
+- Linux/macOS:
+```bash
+python3.9 -m venv venv39
+source venv39/bin/activate
+```
 
-   pip install --upgrade pip setuptools wheel
-   pip install -r requirements.txt
+4. **Install dependencies**
 
-------------------------------------------------------------
-Data
-------------------------------------------------------------
+```bash
+pip install --upgrade pip setuptools wheel
+pip install -r requirements.txt
+```
 
-The dataset required to run the analysis is available on Google Drive:
+---
 
-Download Data: https://drive.google.com/file/d/1xNmhbH4w_zYlcYOL8R5fWhp0YriqodfF/view?usp=sharing
+## 📊 Data
 
-After downloading, extract the files into the data/ directory of the project.  
+The dataset required for the analysis is available on Google Drive:
 
-Your folder structure should look like:
+👉 [Download Data](https://drive.google.com/file/d/1xNmhbH4w_zYlcYOL8R5fWhp0YriqodfF/view?usp=sharing)
 
+After downloading, extract the files into the `data/` directory.
+
+### Folder structure
+
+```text
 project-root/
 │
 ├── data/
 │   ├── ae33/
+│   │   ├── smr_20180101.csv
+│   │   ├── smr_20190101.csv
+│   │   ├── smr_20200101.csv
+│   │   ├── smr_20210101.csv
+│   │   └── smr_20220101.csv
 │   ├── Particle18/
 │   ├── Particle19/
-│   ├── ...
-│   ├── smr_20180101.csv
-│   └── smr_20220101.csv
+│   └── ...
 │
 ├── abs/
 │   ├── ae31_abs_bc_pm1_SMEARii_2010_2017.txt
@@ -79,23 +97,26 @@ project-root/
 │
 ├── revised_manuscript_10_super.py
 ├── requirements.txt
-└── README.txt
+└── README.md
+```
 
-------------------------------------------------------------
-Running the Script
-------------------------------------------------------------
+---
 
-Once the data is in place and dependencies installed, run:
+## ▶️ Running the Script
 
-   python revised_manuscript_10_super.py
+After placing the data and installing dependencies, run:
 
-This will execute the analysis and produce correction factor plots (2010–2022).
+```bash
+python revised_manuscript_10_super.py
+```
 
-------------------------------------------------------------
-Dependencies
-------------------------------------------------------------
+This will execute the full analysis and generate correction factor plots (**2010–2022**).
 
-Main libraries used:
+---
+
+## 📦 Dependencies
+
+Main libraries:
 
 - pandas==1.5.3  
 - numpy==1.23.5  
@@ -107,35 +128,25 @@ Main libraries used:
 - ruptures==1.1.7  
 - hmmlearn==0.2.8  
 
-See requirements.txt for the full list.
+See `requirements.txt` for the full list.
 
-------------------------------------------------------------
-Reproducibility Notes
-------------------------------------------------------------
+---
 
-- The project is fixed to Python 3.9 for compatibility with pandas 1.5.3 and related libraries.  
-- Using newer Python versions (3.12, 3.13) may cause incompatibilities.  
-- All relative paths (./data/...) ensure cross-platform reproducibility.
+## 🔁 Reproducibility Notes
 
-------------------------------------------------------------
-Troubleshooting
-------------------------------------------------------------
+- This project is pinned to **Python 3.9** for compatibility.  
+- Using Python 3.12 or 3.13 may cause incompatibility issues.  
+- All file paths are **relative** (`./data/...`) to ensure cross-platform reproducibility.  
 
-If you face issues when installing dependencies (especially on Windows) where pip seems to use the wrong Python version 
-(for example, Python 3.13 instead of Python 3.9), here is the solution that worked:
+---
 
-Although the virtual environment (venv39) was activated, pip was still pointing to Python 3.13 global installation.  
-This happens because in Windows, sometimes the global pip mixes with the virtual environment pip.
+## 🛠 Troubleshooting
 
-How to ensure you use the correct pip:
+If you face issues with `pip` using the wrong Python version (e.g., pointing to **Python 3.13** instead of **3.9**), use this workaround:
 
-Inside your virtual environment (venv39), run the following command explicitly:
+```powershell
+.\venv39\Scripts\python.exe -m pip install --upgrade pip setuptools wheel
+.\venv39\Scripts\python.exe -m pip install -r requirements.txt
+```
 
-   .\venv39\Scripts\python.exe -m pip install --upgrade pip setuptools wheel
-
-This guarantees that pip and the build tools are updated inside venv39 (Python 3.9), 
-not in the global Python 3.13 installation.
-
-After that, install your requirements again:
-
-   .\venv39\Scripts\python.exe -m pip install -r requirements.txt
+This ensures that pip and dependencies are properly installed in **Python 3.9 (venv39)** and not mixed with global Python versions.
