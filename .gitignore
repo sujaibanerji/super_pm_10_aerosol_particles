@@ -1,0 +1,44 @@
+# Virtual environments
+venv/
+venv39/
+.env/
+*.venv
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pkl
+*.so
+
+# VSCode settings
+.vscode/
+
+# Data folders (raw data and heavy files)
+data/
+abs/
+
+# Ignore all CSV, TXT, DAT, LOG, FLW inside any folder
+*.csv
+*.txt
+*.dat
+*.log
+*.flw
+
+# Jupyter/IPython checkpoints
+.ipynb_checkpoints/
+
+# Logs and temp files
+*.log
+*.tmp
+*.swp
+.DS_Store
+Thumbs.db
+
+# Output images/figures if generated
+*.png
+*.jpg
+*.jpeg
+*.svg
+*.pdf
